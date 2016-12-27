@@ -156,7 +156,7 @@ export class NgbTooltip implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.close();
-    this._unregisterListenersFn();
+    if (typeof this._unregisterListenersFn === "function") this._unregisterListenersFn();
     this._zoneSubscription.unsubscribe();
   }
 }
